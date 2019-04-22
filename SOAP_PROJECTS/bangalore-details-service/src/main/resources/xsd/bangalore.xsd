@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://xmlns.example.com/location/details" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://xmlns.example.com/location/details" elementFormDefault="qualified" >
+<xsd:element name="LocationRequest"
+		type="LocationRequest" />
+<xsd:element name="LocationResponse"
+		type="LocationResponse" />
+<xsd:complexType name="LocationResponse">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="Code"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="Message"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="Type"
+				type="ReturnMessageType" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Details"
+				type="xsd:string" />
+		</xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="ReturnMessageType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SUCCESS" />
+			<xsd:enumeration value="FATAL_ERROR" />
+			<xsd:enumeration value="NON_FATAL_ERROR" />
+		</xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="LocationRequest">
+		<xsd:sequence>
+			<xsd:element name="uniqueId" type="xsd:string" />
+			<xsd:element name="locationKey" type="xsd:string" />
+		</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

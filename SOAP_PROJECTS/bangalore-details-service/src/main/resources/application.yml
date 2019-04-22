@@ -1,0 +1,21 @@
+server:
+  port: 8084    
+ 
+eureka:         
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://172.17.174.65:8083/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+ 
+spring:    
+  application:
+    name: bangalore-details-service   #current service name to be used by the eureka server
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.

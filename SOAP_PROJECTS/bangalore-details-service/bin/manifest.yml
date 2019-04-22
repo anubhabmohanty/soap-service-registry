@@ -1,0 +1,16 @@
+memory: 1024MB
+instances: 1
+timeout: 180
+buildpack: dicf_java_buildpack_4_offline_latest
+path: target/bangalore-details-service.jar
+applications:
+ - host: cf-bangalore-details-service
+   name: cf-bangalore-details-service
+services:
+- poc-registry
+env:
+  spring.profiles.active: poc
+  SPRING_PROFILES_ACTIVE: poc
+  DEBUG: "true"
+  debug: "true"
+  JBP_CONFIG_ORACLE_JRE: '[jre: {version: 1.8.0_+}, memory_calculator: {stack_threads: 300, memory_sizes: {stack: 228k.., metaspace: 128m..256m}, memory_heuristics: {heap: 70, stack: 15, native: 10}, memory_initials: {heap: 90%, metaspace: 90%}}]'
